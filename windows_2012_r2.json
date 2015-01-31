@@ -64,6 +64,77 @@
           "2"
         ]
       ]
+    },
+    {
+      "type": "parallels-iso",
+      "iso_url": "/Volumes/LaCie/isos/local/microsoft/windows_2012_r2.iso",
+      "iso_checksum_type": "md5",
+      "iso_checksum": "458ff91f8abc21b75cb544744bf92e6a",
+      "boot_wait": "2m",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "ssh_wait_timeout": "6h",
+      "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
+      "guest_os_type": "win-2012",
+      "parallels_tools_flavor": "win",
+      "disk_size": 61440,
+      "floppy_files": [
+        "./answer_files/2012_r2/Autounattend.xml",
+        "./scripts/microsoft-updates.bat",
+        "./scripts/win-updates.ps1",
+        "./scripts/openssh.ps1",
+        "./scripts/oracle-cert.cer"
+      ],
+      "prlctl": [
+        [
+          "set",
+          "{{.Name}}",
+          "--memsize",
+          "2048"
+        ],
+        [
+          "set",
+          "{{.Name}}",
+          "--cpus",
+          "2"
+        ],
+        [
+          "set",
+          "{{.Name}}",
+          "--efi-boot",
+          "off"
+         ],
+         [
+          "set",
+          "{{.Name}}",
+          "--winsystray-in-macmenu",
+          "off"
+        ],
+        [
+          "set",
+          "{{.Name}}",
+          "--startup-view",
+          "window"
+        ],
+        [
+          "set",
+          "{{.Name}}",
+          "--startup-view",
+          "window"
+        ],
+        [
+          "set",
+          "{{.Name}}",
+          "--sh-app-guest-to-host",
+          "off"
+        ],
+        [
+          "set",
+          "{{.Name}}",
+          "--sh-app-host-to-guest",
+          "off"
+        ]
+      ]
     }
   ],
   "provisioners": [

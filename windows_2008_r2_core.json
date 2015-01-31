@@ -64,6 +64,65 @@
           "2"
         ]
       ]
+    },
+    {
+      "type": "parallels-iso",
+      "iso_url": "/Volumes/LaCie/isos/local/microsoft/windows_2008_r2.iso",
+      "iso_checksum_type": "md5",
+      "iso_checksum": "4263be2cf3c59177c45085c0a7bc6ca5",
+      "boot_wait": "2m",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "ssh_wait_timeout": "2h",
+      "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
+      "guest_os_type": "win-2008",
+      "parallels_tools_flavor": "win",
+      "disk_size": 61440,
+      "floppy_files": [
+        "./answer_files/2008_r2_core/Autounattend.xml",
+        "./scripts/microsoft-updates.bat",
+        "./scripts/win-updates.ps1",
+        "./scripts/openssh.ps1",
+        "./scripts/oracle-cert.cer"
+      ],
+      "prlctl": [
+        [
+          "set",
+          "{{.Name}}",
+          "--memsize",
+          "2048"
+        ],
+        [
+          "set",
+          "{{.Name}}",
+          "--cpus",
+          "2"
+        ],
+        [
+          "set",
+          "{{.Name}}",
+          "--winsystray-in-macmenu",
+          "off"
+        ],
+        [
+          "set",
+          "{{.Name}}",
+          "--startup-view",
+          "window"
+        ],
+        [
+          "set",
+          "{{.Name}}",
+          "--sh-app-guest-to-host",
+          "off"
+        ],
+        [
+          "set",
+          "{{.Name}}",
+          "--sh-app-host-to-guest",
+          "off"
+        ]
+      ]
     }
   ],
   "provisioners": [
